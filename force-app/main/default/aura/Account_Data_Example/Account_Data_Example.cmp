@@ -1,0 +1,59 @@
+<aura:component controller="Account_Data" implements="flexipage:availableForRecordHome,force:hasRecordId">
+     <aura:attribute name="myAccounts" type="Account[]"/>
+    <aura:attribute name="simpleRec" type="Object"/>
+    <aura:attribute name="acc" type="Object"/>
+    
+   
+  <!--  <aura:handler name="init" value="{!this}" action="{!c.invoke}"/> -->
+
+    <force:recordData aura:id="myId" 
+                      layoutType="FULL"
+                      recordId="{!v.recordId}"
+                      fields="FirstName,LastName,Title"
+                      targetRecord="{!v.acc}"
+                      targetFields="{!v.simpleRec}"
+                      recordUpdated="{!c.invoke}"
+                      />
+     <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-label="Example default base table of Opportunities">
+	<thead>
+		<tr class="slds-line-height_reset">
+			<th class="" scope="col">
+				<div class="slds-truncate" title="Account Name">Account Name</div>
+			</th>
+			<th class="" scope="col">
+				<div class="slds-truncate" title="Phone">Phone</div>
+			</th>
+			<th class="" scope="col">
+				<div class="slds-truncate" title="Industry">Industry</div>
+			</th>
+			<th class="" scope="col">
+				<div class="slds-truncate" title="Rating">Rating</div>
+			</th>
+			
+		</tr>
+	</thead>
+	<tbody>
+        <aura:iteration items="{!v.myAccounts}" var="a">
+		<tr class="slds-hint-parent">
+			
+			<td data-label="Account Name">
+				<div class="slds-truncate" title="Account Name">{!a.Name}</div>
+			</td>
+			
+			<td data-label="Phone">
+				<div class="slds-truncate" title="Phone">{!a.Phone}</div>
+			</td>
+			<td data-label="Industry">
+				<div class="slds-truncate" title="Industry">{!a.Industry}</div>
+			</td>
+            <td data-label="Rating">
+				<div class="slds-truncate" title="Rating">{!a.Rating}</div>
+			</td>
+			
+		</tr>
+		
+            </aura:iteration>
+	</tbody>
+</table>
+	
+</aura:component>

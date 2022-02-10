@@ -1,0 +1,22 @@
+<apex:page >
+    <apex:pageBlock title="Employee">
+        This is pageblock
+    </apex:pageBlock>
+    <apex:pageBlock title="Employee" helpTitle="needHelp?" helpUrl="/apex/page" >
+        Name:Satish Myla <br/><br/>
+        Age:33<br/><br/>
+        City:Hyderabad
+    </apex:pageBlock>
+    <apex:pageBlock title="Employee"  tabStyle="Opportunity">
+        This is pageblock
+    </apex:pageBlock>
+    <apex:pageBlock title="Employee" dir="RTL">
+        This is pageblock
+    </apex:pageBlock>
+    <apex:pageBlock title="Employee" rendered="false">
+        This is pageblock
+    </apex:pageBlock>
+    <apex:pageBlock title="Mode" mode="mainDetail">
+        This is pageblock
+    </apex:pageBlock>
+</apex:page>

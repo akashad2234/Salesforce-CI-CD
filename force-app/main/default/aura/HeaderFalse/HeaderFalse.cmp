@@ -1,0 +1,13 @@
+<aura:component description="ButtonCmp">
+  <!-- Attributes -->
+  <aura:attribute name="pageReference" type="Object"/>
+
+  <!--URL Navigation -->
+  <lightning:navigation aura:id="navService"/>
+
+  <!-- Handlers -->
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+  <!--Body-->
+  <lightning:button onclick="{!c.handleClick}" label="Click to Open in new window"/>
+</aura:component>

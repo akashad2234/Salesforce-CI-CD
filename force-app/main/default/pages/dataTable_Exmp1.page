@@ -1,0 +1,34 @@
+<apex:page standardController="Account" recordSetVar="myData">
+    <apex:form >
+        <br/><br/>
+        <apex:dataTable value="{!myData}" var="a" width="500" border="2">
+            <apex:column value="{!a.Name}"/>
+            <apex:column value="{!a.industry}"/>
+            <apex:column value="{!a.Phone}"/>
+        </apex:dataTable>
+        <br/><br/>
+        <apex:dataTable value="{!myData}" var="a" width="500" cellpadding="10" border="1px">
+            <apex:column value="{!a.Name}"/>
+            <apex:column value="{!a.industry}"/>
+            <apex:column value="{!a.Phone}"/>
+        </apex:dataTable>
+        <br/><br/>
+         <apex:dataTable value="{!myData}" var="a" width="500" cellpadding="10" cellspacing="10" border="1px">
+            <apex:column value="{!a.Name}"/>
+            <apex:column value="{!a.industry}"/>
+            <apex:column value="{!a.Phone}"/>
+        </apex:dataTable>
+        <br/><br/>
+         <apex:dataTable value="{!myData}" var="a" width="500" cellpadding="10" cellspacing="10" border="1px" style="left-margin:50;">
+            <apex:column value="{!a.Name}"/>
+            <apex:column value="{!a.industry}"/>
+            <apex:column value="{!a.Phone}"/>
+        </apex:dataTable>
+        <br/><br/>
+         <apex:dataTable value="{!myData}" var="a" width="500" frame="vsides">
+            <apex:column value="{!a.Name}"/>
+            <apex:column value="{!a.industry}"/>
+            <apex:column value="{!a.Phone}"/>
+        </apex:dataTable>
+    </apex:form>
+</apex:page>

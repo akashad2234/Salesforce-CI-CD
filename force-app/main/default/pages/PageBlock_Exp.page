@@ -1,0 +1,8 @@
+<apex:page >
+    <apex:sectionHeader title="Employee" subtitle="New Employee"/>
+        <apex:pageBlock title="Employee" helpTitle="needHelp?" helpUrl="/apex/page" mode="Edit"  >
+        Name:Satish Myla <br/><br/>
+        Age:33<br/><br/>
+        City:Hyderabad
+    </apex:pageBlock>
+</apex:page>

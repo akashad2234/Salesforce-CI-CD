@@ -1,0 +1,26 @@
+<aura:component >
+    <aura:attribute name="res" type="Object" default="1" />
+    <lightning:progressIndicator currentStep="{!v.res}" type="path" hasError="false">
+            <lightning:progressStep label="Account" value="1" />
+            <lightning:progressStep label="Contact" value="2" />
+            <lightning:progressStep label="Opportunity" value="3" />
+        </lightning:progressIndicator>
+    {!v.res.id}
+    <lightning:tabset selectedTabId="{!v.res}" onselect="{!c.show}" >
+        <lightning:tab label="Account" id="one">
+            This is Account Data <br/>
+            This is Account Data <br/>
+            This is Account Data <br/>
+        </lightning:tab>
+        <lightning:tab label="Contact" id="two">
+            This is Contact Data <br/>
+            This is Contact Data <br/>
+            This is Contact Data <br/>
+        </lightning:tab>
+        <lightning:tab label="Opportunity" id="three">
+            This is Opportunity Data <br/>
+            This is Opportunity Data <br/>
+            This is Opportunity Data <br/>
+        </lightning:tab>
+    </lightning:tabset>
+</aura:component>

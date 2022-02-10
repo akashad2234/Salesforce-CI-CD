@@ -1,0 +1,29 @@
+<apex:page standardController="Account" recordSetVar="items">
+    <apex:form >
+        <apex:repeat value="{!items}" var="a">
+            {a.name}->{!a.phone}                         
+        </apex:repeat>
+        <br/><br/>
+        <div style="width:600px;border:1px solid black;padding:10px;">
+            <table width="100%">
+                <tr width="100%" style="background:grey; padding:10px;">
+                    <td>Name</td>  
+                    <td>Phone</td> 
+                    <td>Industry</td> 
+                </tr>
+                <apex:repeat value="{!items}" var="a">
+                    <tr width="100%">
+                        <td>{!a.name}</td>  
+                        <td>{!a.phone}</td> 
+                        <td>{!a.industry}</td>                                                                      
+                    </tr>                                    
+                </apex:repeat>
+                
+            </table>
+            
+        </div>              
+        
+        
+        
+    </apex:form>
+</apex:page>

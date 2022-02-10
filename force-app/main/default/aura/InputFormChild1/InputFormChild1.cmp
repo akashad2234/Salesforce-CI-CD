@@ -1,0 +1,44 @@
+<aura:component controller="ObjectSpecific_Example" >   
+    <aura:attribute name="result" type="object"/>
+    <aura:attribute name="result1" type="object"/>
+    <c:LDS_exp_3_PickList result="{!v.result}" objName="Account" fldName="Industry"/>
+    <c:LDS_exp_3_PickList result="{!v.result1}" objName="Account" fldName="Rating"/>  
+    <aura:attribute name="simpleNewAccount" type="Account" default="{sobjectName:'Account'}"/> 
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="sObjectName" type="String" default="Account" />
+   <!-- <aura:attribute name="pageReference" type="Object"/> -->
+    <lightning:navigation aura:id="navService"/>
+    
+ <!--   <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>  -->
+    
+    
+    <!-- Display the new contact form -->
+    <div class="Create Account">
+        <lightning:card iconName="action:new_account" title="Account">
+            <div class="slds-p-horizontal--small">
+                <lightning:input aura:id="accountfield" label="Name" value="{!v.simpleNewAccount.Name}"/>
+                
+                <lightning:input aura:id="accountfield" label="Phone" value="{!v.simpleNewAccount.Phone}"/>
+                <lightning:select aura:id="accountfield" label="Industry"  name="Industry" value="{!v.simpleNewAccount.Industry}">
+                    <option value="none">--None--</option>
+                    <aura:iteration items="{!v.result}"  var="a" >
+                        <option value="{!a}">{!a}</option>
+                    </aura:iteration>
+                </lightning:select> 
+                <lightning:select aura:id="accountfield" label="Rating"  name="Rating" value="{!v.simpleNewAccount.Rating}">
+                    <option value="none">--None--</option>
+                    <aura:iteration items="{!v.result1}"  var="b" >
+                        <option value="{!b}">{!b}</option> 
+                    </aura:iteration>
+                </lightning:select>
+                <br/>
+                
+                <center>  <lightning:button label="Save Account"  variant="brand" onclick="{!c.handleSaveAccount}"/> </center>
+                
+            </div>
+        </lightning:card>
+    </div>
+    
+  
+    
+</aura:component>

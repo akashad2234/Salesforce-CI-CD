@@ -1,0 +1,45 @@
+<aura:component >
+    <aura:attribute name="steps" type="String" default="1" />
+    <div class="one">
+        <lightning:progressIndicator currentStep="{!v.steps}"  hasError="false">
+            <lightning:progressStep label="Basic Info" value="1" />
+            <lightning:progressStep label="Education" value="2" />
+            <lightning:progressStep label="Experience" value="3" />
+        </lightning:progressIndicator>
+        
+    </div>
+    <div>
+        <lightning:tabset selectedTabId="{!v.steps}"  >
+            <lightning:tab label="Basic info" id="1">
+                <lightning:input label="LastName" aura:id="lname" />
+                <lightning:input label="FirstName" aura:id="fname" />
+                <lightning:input label="Phone" aura:id="phone" />
+                <lightning:input label="Email" aura:id="email" />
+                <lightning:button label="Next" onclick="{!c.show}" />
+                
+            </lightning:tab>
+        
+       
+            <lightning:tab label="Education" id="2">
+                <lightning:input label="Qualification" aura:id="lname" />
+                <lightning:input label="College" aura:id="fname" />
+                <lightning:input label="City" aura:id="phone" />
+                <lightning:input label="Place" aura:id="email" />
+                <lightning:button label="Next" onclick="{!c.show}"/>
+                <lightning:button label="Previous" onclick="{!c.call}"/>
+            </lightning:tab>
+        
+      
+            <lightning:tab label="Experience" id="3">
+                <lightning:input label="Company" aura:id="lname" />
+                <lightning:input label="Exp" aura:id="fname" />
+                <lightning:input label="Technology" aura:id="phone" />
+                <lightning:input label="Salary" aura:id="email" />
+                <lightning:button label="Previous" onclick="{!c.call}"/>
+                <lightning:button label="Submit" onclick="{!c.invoke}"/>
+            </lightning:tab>
+     
+        </lightning:tabset>
+    </div>
+    
+</aura:component>

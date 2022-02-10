@@ -1,0 +1,8 @@
+<aura:component implements="lightning:actionOverride" access="global">
+    <lightning:card title="New Account" iconName="standard:account">
+        <lightning:input label="Name" aura:id="name" />
+        <lightning:input label="Phone" aura:id="phone" />
+        <lightning:input label="Rating" aura:id="rating" />
+    </lightning:card>
+    
+</aura:component>

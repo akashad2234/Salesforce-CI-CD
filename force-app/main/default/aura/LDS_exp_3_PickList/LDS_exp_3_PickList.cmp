@@ -1,0 +1,6 @@
+<aura:component controller="PickList_Schema_Example">
+	 <aura:attribute name="objName" type="String" />
+    <aura:attribute name="fldName" type="String" />
+    <aura:attribute name="result" type="object" />
+    <aura:handler name="init" value="{!this}" action="{!c.call}" />
+</aura:component>

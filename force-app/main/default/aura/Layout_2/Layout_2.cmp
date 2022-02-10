@@ -1,0 +1,22 @@
+<aura:component >
+<p>These layout items specify <code>size="4"</code>, or 4 columns of a 12 column grid. Each item occupies 33.33% of the width.</p>
+    <div class="c-container">
+        <lightning:layout multipleRows="true">
+            <lightning:layoutItem size="4" padding="around-small">
+                <div class="custom-box">1</div>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="4" padding="around-small">
+                <div class="custom-box">2</div>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="4" padding="around-small">
+                <div class="custom-box">3</div>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="4" padding="around-small">
+                <div class="custom-box">4</div>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="4" padding="around-small">
+                <div class="custom-box">5</div>
+            </lightning:layoutItem>
+        </lightning:layout>
+    </div>
+</aura:component>

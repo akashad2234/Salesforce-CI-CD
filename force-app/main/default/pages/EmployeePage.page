@@ -1,0 +1,6 @@
+<apex:page controller="Employee_List">
+    LastName:{!emp.lastname} <br/><br/>
+    FirstName:{!emp.firstname} <br/><br/>
+    Phone:{!emp.phone} <br/><br/>
+    City:{!emp.city} <br/><br/>
+</apex:page>

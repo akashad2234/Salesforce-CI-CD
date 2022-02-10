@@ -1,0 +1,30 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,lightning:actionOverride" access="global" >
+    <!--Create an attribute with name "options" to sync the data between Lead_Field_Exam options attribute -->
+    <aura:attribute name="options" type="object" />
+    <aura:attribute name="newLead" type="Lead"/>
+    <aura:attribute name="recordError" type="String"/>
+    <c:Lead_Field_Exam options="{!v.options}" objName="Lead" fldName="rating" />
+    <!-- because we are trying to override the standard Functionality we need to use recordData-->
+    <force:recordData aura:id="myId"
+                      fields="FirstName,LastName,Company,Rating"
+                      recordId="{!v.recordId}"
+                      targetFields="{!v.newLead}"
+                      targetError="{!v.recordError}"
+                      mode="EDIT"
+                      />
+    <!-- we can use fields or layoutType
+            we can use targetFields or targetRecord  -->
+    <!--we are invoking the handler to intialize the sObject lead with newRecord for recordData -->
+    <aura:handler name="init" value="{!this}" action="{!c.invoke}"/>
+    <!--This is lightning form to read the inputs from the user -->
+	 <lightning:input label="LastName" name="LastName" aura:id="lname" value="{!v.newLead.LastName}" />
+    <lightning:input label="FirstName" name="FirstName" aura:id="fname" value="{!v.newLead.FirstName}" />
+    <lightning:input label="Company" name="Company" aura:id="company" value="{!v.newLead.Company}" />
+    <lightning:select label="Rating" name="Rating" aura:id="rating" value="{!v.newLead.Rating}" >
+        <option value="none">--None--</option>
+         <aura:iteration items="{!v.options}" var="a">
+                <option value="{!a}">{!a}</option>
+            </aura:iteration>
+    </lightning:select>
+    <lightning:button label="Save" onclick="{!c.save}" />
+</aura:component>

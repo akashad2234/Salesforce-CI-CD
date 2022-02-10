@@ -1,0 +1,45 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global" >
+    <aura:attribute name="disabled" type="Boolean" default="false" />
+    <aura:attribute name="saved" type="Boolean" default="false" />
+    <aura:attribute name="showSpinner" type="Boolean" default="true" />
+    <aura:attribute name="sObjectName" type="String" default="Contact" /> 
+    <aura:attribute name="iconName" type="String" default="contact" /> 
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="pageReference" type="Object"/>
+    <lightning:navigation aura:id="navService"/>
+    
+    <aura:if isTrue="{!v.showSpinner}">
+        <lightning:spinner />
+    </aura:if>
+    <aura:if isTrue="{!!v.saved}">
+        
+    <lightning:card iconName="{!'standard:'+v.iconName}" title="{! 'New '+v.sObjectName}">
+        <div class="slds-p-left_large slds-p-right_medium"> 
+            
+        <lightning:recordEditForm
+           onload="{!c.handleLoad}"
+            onsubmit="{!c.handleSubmit}"
+            onsuccess="{!c.handleSuccess}"
+            objectApiName="{!v.sObjectName}">
+           <!--  the messages component is for error messages -->
+            <lightning:messages />
+
+            <lightning:inputField fieldName="LastName" aura:id="LastName"/>
+            <lightning:inputField fieldName="AccountId" aura:id="AccountId"/>
+            <lightning:inputField fieldName="Birthdate" aura:id="Birthdate"/>
+            <lightning:inputField fieldName="AssistantPhone" aura:id="AssistantPhone"/>
+            <lightning:inputField fieldName="Email" aura:id="Email"/>
+            <lightning:inputField fieldName="LeadSource" aura:id="LeadSource"/>
+            <lightning:inputField fieldName="Lead_Source_2__c" aura:id="Lead_Source"/>
+            <div class="slds-m-top_medium">
+                <lightning:button disabled="{!v.disabled}" variant="brand" type="submit" name="save" label="Save" />
+            </div>
+        </lightning:recordEditForm>
+        <aura:set attribute="else">
+            <p>Saved! New record id is {!v.recordId}</p>
+        </aura:set>
+            </div>
+    </lightning:card>
+    </aura:if>
+
+</aura:component>

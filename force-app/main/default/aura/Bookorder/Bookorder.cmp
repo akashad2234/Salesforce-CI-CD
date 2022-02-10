@@ -1,0 +1,97 @@
+<aura:component implements="lightning:isUrlAddressable">
+    
+    <aura:attribute name="bookId" type="String" />
+    <!-- <aura:attribute name="bookName" type="String" /> -->
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <!-- USE LDS to get the new template of Beer Order Record -->
+    <aura:attribute name="newRecordObject" type="Object"/>
+    <aura:attribute name="bookOrder" type="Object"/>
+    <aura:attribute name="newRecordError" type="String"/>
+    <force:recordData aura:id="newRecordCreator"
+                      layoutType="FULL"
+                      targetRecord="{!v.newRecordObject}"
+                      targetFields ="{!v.bookOrder}"
+                      targetError="{!v.newRecordError}"
+                      mode="EDIT"
+                      />
+    <!-- Use LDS for getting the information of related Beer -->
+    <aura:attribute name="record" type="Object" />
+    <aura:attribute name="simpleRecord" type="Object" />
+    <aura:attribute name="recordError" type="String" />
+    <force:recordData aura:id="recordViewer"
+                      layoutType="FULL"
+                      recordId="{!v.bookId}"
+                      targetError="{!v.recordError}"
+                      targetRecord="{!v.record}"
+                      targetFields ="{!v.simpleRecord}"
+                      mode="VIEW" />
+    
+    <!-- Create Beer Record Form -->
+    <div class="slds-p-around_small">
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_1-of-2 slds-p-around_small">
+                <lightning:input type="number" required="true" aura:id="bOrder" name="input2" label="Quantity to Order" 
+                                 value="{!v.bookOrder.Ordered_Quantity__c}"/>
+            </div>
+            <div class="slds-col slds-size_1-of-2 slds-p-around_small">
+                <lightning:input name="bookName" 
+                                 readonly="true" value="{!v.simpleRecord.Name}" 
+                                 label="Book to order" />
+            </div>
+        </div>
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_1-of-2 slds-p-around_small" >
+                <lightning:inputAddress aura:id="bOrder"
+                                        addressLabel="Shipping Address"
+                                        streetLabel="Street"
+                                        cityLabel="City"
+                                        countryLabel="Country"
+                                        provinceLabel="State/Province"
+                                        postalCodeLabel="PostalCode"
+                                        street="{!v.bookOrder.Shipping_Street__c}"
+                                        city="{!v.bookOrder.Shipping_City__c}"
+                                        country="{!v.bookOrder.Shipping_Country__c}"
+                                        province="{!v.bookOrder.Shipping_State__c}"
+                                        postalCode="{!v.bookOrder.Shipping_Postal_Code__c}"
+                                        required="true"
+                                        fieldLevelHelp="Input Shipping Address here"
+                                        />
+            </div>
+            <div class="slds-col slds-size_1-of-2 slds-p-around_small">
+                <lightning:inputAddress aura:id="bOrder"
+                                        addressLabel="Billing Address"
+                                        streetLabel="Street"
+                                        cityLabel="City"
+                                        countryLabel="Country"
+                                        provinceLabel="State/Province"
+                                        postalCodeLabel="PostalCode"
+                                        street="{!if(v.bookOrder.Billing_Same_as_Shipping__c,v.bookOrder.Shipping_Street__c,v.bookOrder.Billing_Street__c)}"
+                                        city="{!if(v.bookOrder.Billing_Same_as_Shipping__c,v.bookOrder.Shipping_City__c,v.bookOrder.Billing_City__c)}"
+                                        country="{!if(v.bookOrder.Billing_Same_as_Shipping__c,v.bookOrder.Shipping_Country__c,v.bookOrder.Billing_Country__c)}"
+                                        province="{!if(v.bookOrder.Billing_Same_as_Shipping__c,v.bookOrder.Shipping_State__c,v.bookOrder.Billing_State__c)}"
+                                        postalCode="{!if(v.bookOrder.Billing_Same_as_Shipping__c,v.bookOrder.Shipping_Postal_Code__c,v.bookOrder.Billing_Postal_Code__c)}"
+                                        required="{!!v.bookOrder.Billing_Same_as_Shipping__c}"
+                                        readonly ="{!v.bookOrder.Billing_Same_as_Shipping__c}"
+                                        fieldLevelHelp="Input Billing Address here if different from shipping"
+                                        />
+            </div>
+        </div>
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_3-of-3 slds-p-around_small">
+                <lightning:input type="checkbox" label="Billing Same as Shipping" 
+                                 name="input3" checked="{!v.bookOrder.Billing_Same_as_Shipping__c}"
+                                 value="{!v.bookOrder.Billing_Same_as_Shipping__c}"
+                                 />
+                
+            </div>
+        </div>
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_3-of-3 slds-p-around_small">
+                <lightning:button label="Place Order" 
+                                  variant="brand" onclick="{!c.handleSubmit}"/>
+                
+            </div>
+        </div>
+    </div>
+</aura:component>

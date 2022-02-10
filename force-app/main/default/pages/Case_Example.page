@@ -1,0 +1,13 @@
+<apex:page controller="Case_Example" tabStyle="case" action="{!invoke}" lightningStylesheets="true" >
+    <apex:slds />
+    <apex:sectionHeader title="Cases" subtitle="Related_Cases" />
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockTable value="{!cases}" var="a">
+                <apex:column value="{!a.subject}"/>
+                <apex:column value="{!a.Priority}"/>
+                <apex:column value="{!a.Status}"/>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

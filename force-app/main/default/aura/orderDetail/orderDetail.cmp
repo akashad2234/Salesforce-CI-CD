@@ -1,0 +1,16 @@
+<aura:component implements="lightning:isUrlAddressable">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="orderId" type="String"/>
+    <aura:attribute name="record" type="Object"/>
+    <aura:attribute name="orderRecord" type="Object"/>
+    <aura:attribute name="targetError" type="String"/>
+    
+    <force:recordData aura:id="recordViewer"
+                      recordId="{!v.orderId}"
+                      targetRecord="{!v.record}"
+                      targetFields="{!v.orderRecord}"
+                      layoutType="FULL"
+                      targetError="{!v.targetError}"
+                      />
+    {!v.orderRecord.Name}
+</aura:component>

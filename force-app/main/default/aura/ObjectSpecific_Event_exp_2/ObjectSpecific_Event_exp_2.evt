@@ -1,0 +1,6 @@
+<aura:event type="APPLICATION" description="Event template" >
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="Name" type="String" />
+    <aura:attribute name="Phone" type="String" />
+    <aura:attribute name="Rating" type="String" />
+</aura:event>

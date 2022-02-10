@@ -1,0 +1,8 @@
+<aura:component >
+    <aura:registerEvent name="one" type="c:secondEvent" />
+    <div class="box">
+        <lightning:button label="change" onclick="{!c.call}" />
+        
+    </div>
+    
+</aura:component>

@@ -1,0 +1,16 @@
+<aura:component >
+    <aura:attribute name="steps" type="String" default="1" />
+    <aura:attribute name="opt" type="String" />
+	 <lightning:progressIndicator currentStep="{!v.steps}" type="path" hasError="false">
+            <lightning:progressStep label="Prospecting" value="1" />
+            <lightning:progressStep label="QuoteGeneration" value="2" />
+            <lightning:progressStep label="ClosedWon" value="3" />
+        </lightning:progressIndicator>
+    <lightning:select name="select1" label="How many tickets?" required="true" value="{!v.opt}">
+    <option value="">Choose one....</option>
+        <option value="1">one</option>
+        <option value="2">two</option>
+        <option value="3">three</option>
+    </lightning:select>
+    <lightning:button label="Submit" onclick="{!c.call}" />
+</aura:component>

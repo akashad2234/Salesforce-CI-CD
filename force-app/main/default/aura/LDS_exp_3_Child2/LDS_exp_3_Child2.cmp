@@ -1,0 +1,43 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId">
+ 
+    <aura:attribute name="result" type="object"/>
+    <c:LDS_exp_3_PickList result="{!v.result}" objName="Contact" fldName="LeadSource"/>
+    <aura:attribute name="newContact" type="Object"/>
+    <aura:attribute name="simpleNewContact" type="Object"/>
+    <aura:attribute name="newContactError" type="String"/>
+   
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <force:recordData aura:id="contactRecordCreator" 
+                      fields="FirstName,LastName,Title"
+                      targetRecord="{!v.newContact}"
+                      targetFields="{!v.simpleNewContact}"
+                      targetError="{!v.newContactError}" />
+                      
+    <!-- Display the new contact form -->
+    <div  class="prevform">
+    <div class="Create Contact">
+        <lightning:card iconName="action:new_contact" title="Create Contact">
+            <div class="slds-p-horizontal--small">
+                <lightning:input aura:id="contactField" label="First Name" value="{!v.simpleNewContact.FirstName}"/>
+                <lightning:input aura:id="contactField" label="Last Name" value="{!v.simpleNewContact.LastName}"/>
+                <lightning:input aura:id="contactField" label="Title" value="{!v.simpleNewContact.Title}"/>
+                <lightning:select aura:id="contactField" label="LeadSource"  name="LeadSource" value="{!v.simpleNewContact.LeadSource}">
+                    <option value="none">--None--</option>
+                    <aura:iteration items="{!v.result}"  var="a" >
+                        <option value="{!a}">{!a}</option>
+                    </aura:iteration>
+                </lightning:select>
+                <br/>
+                <lightning:button label="Save Contact" variant="brand" onclick="{!c.handleSaveContact}"/>
+            </div>
+        </lightning:card>
+    </div>
+    </div>
+    <!-- Display Lightning Data Service errors -->
+    <aura:if isTrue="{!not(empty(v.newContactError))}">
+        <div class="recordError">
+            {!v.newContactError}</div>
+    </aura:if>
+
+</aura:component>

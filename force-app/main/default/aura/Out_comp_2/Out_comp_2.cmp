@@ -1,0 +1,8 @@
+<aura:component controller="Out_App_Example" >
+    <aura:attribute name="myVal" type="String"/>
+    <aura:attribute name="records" type="object"/>
+    <aura:attribute name="columns" type="list"/>
+    <aura:handler name="init" value="{!this}" action="{!c.show}" />
+    <lightning:dataTable  columns="{!v.columns}" data="{!v.records}" keyField="id"  />
+	
+</aura:component>

@@ -1,0 +1,9 @@
+<!-- c:AuraMethodChild -->
+<aura:component>
+    <aura:method name="logParam" action="{!c.doAction}" access="Public">
+        <aura:attribute name="message" type="String" default="default message" />
+    </aura:method>
+    
+    <p>This component has an aura:method definition.</p>
+    <br/>
+</aura:component>

@@ -1,0 +1,17 @@
+<apex:page >
+    <apex:form >
+        <apex:pageBlock title="Employee">
+            <apex:pageBlockSection title="Section1">
+                Block get Excuted
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Section2" collapsible="true">
+                Block get Excuted
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Section3" columns="3">
+               Name:Dell<br/><br/>
+               price:5000<br/><br/>
+                Quantity:1
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

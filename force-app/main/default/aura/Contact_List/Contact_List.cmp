@@ -1,0 +1,68 @@
+<aura:component controller="Aura_Contact_Example">
+    <aura:attribute name="myContacts" type="Contact[]"/>
+    <aura:handler name="init" value="{!this}" action="{!c.invoke}" />
+    <div class="slds-page-header">
+        <div class="slds-page-header__row">
+            <div class="slds-page-header__col-title">
+                <div class="slds-media">
+                    <div class="slds-media__figure"> 
+                        <span class="slds-icon_container slds-icon-standard-opportunity" title="opportunity">
+                       <lightning:icon iconName="action:approval" alternativeText="Success" variant="error" />
+                        <span class="slds-assistive-text">opportunity</span> 
+                        </span>
+                    </div>
+                    <div class="slds-media__body">
+                        <div class="slds-page-header__name">
+                            <div class="slds-page-header__name-title">
+                                <h1>
+                                    <span class="slds-page-header__title slds-truncate" title="BlueHood">BlueHood</span>
+                                </h1> </div>
+                        </div>
+                        <p class="slds-page-header__name-meta">Contact List</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-label="Example default base table of Opportunities">
+	<thead>
+		<tr class="slds-line-height_reset">
+			<th class="" scope="col">
+				<div class="slds-truncate" title="Id">Contact Id</div>
+			</th>
+			<th class="" scope="col">
+				<div class="slds-truncate" title=" Name">Contact Name</div>
+			</th>
+			<th class="" scope="col">
+				<div class="slds-truncate" title="Phone">Contact Phone</div>
+			</th>
+			<th class="" scope="col">
+				<div class="slds-truncate" title="Email">Email</div>
+			</th>
+			
+		</tr>
+	</thead>
+	<tbody>
+        <aura:iteration items="{!v.myContacts}" var="a">
+		<tr class="slds-hint-parent">
+			<td data-label="Close Date">
+				<div class="slds-truncate" title="Id">{!a.Id}</div>
+			</td>
+			<td data-label="Account Name">
+				<div class="slds-truncate" title="Name">{!a.Name}</div>
+			</td>
+			
+			<td data-label="Prospecting">
+				<div class="slds-truncate" title="Phone">{!a.Phone}</div>
+			</td>
+			<td data-label="Confidence">
+				<div class="slds-truncate" title="Email%">{!a.Email}%</div>
+			</td>
+			
+		</tr>
+		
+            </aura:iteration>
+	</tbody>
+</table>
+</aura:component>

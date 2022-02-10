@@ -1,0 +1,6 @@
+<aura:component >
+    Name:akash <br/>
+    Age:23
+    City:Kolkata
+    
+</aura:component>

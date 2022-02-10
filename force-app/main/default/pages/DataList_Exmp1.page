@@ -1,0 +1,6 @@
+<apex:page standardController="Account" recordSetVar="items" readOnly="true">
+    <apex:dataList value="{!items}" var="a">
+        {a.name}->{!a.phone}
+    </apex:dataList>
+    
+</apex:page>

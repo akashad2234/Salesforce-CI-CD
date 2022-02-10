@@ -1,0 +1,27 @@
+<aura:component >
+	<!--<aura:attribute name="TagLine" type="String" default="Audit History Report"/> -->
+     <aura:attribute name="options" type="List" default="[
+    {'label': 'Date', 'value': 'option1'},{'label': 'Text', 'value': 'option2'}]"/>
+    <aura:attribute name="value" type="String" default=""/>
+  <div class="slds-page-header">
+        <div class="slds-page-header__row"> 
+            <div class="slds-page-header__col-title lgc-bg">
+               
+                            <div class="slds-page-header__name-title"> 
+                                <h1>
+                                    <span class="slds-page-header__title slds-truncate" title="Audit History Report"><b>Audit History Report</b></span>
+                               </h1> 
+                        </div>
+                    </div>
+                </div> 
+    </div>
+    <div class="slds-align_absolute-center">
+         <lightning:radioGroup name="radioGroupRequired"
+                          label="Search By"
+                          options="{! v.options }"
+                          value="{! v.value }"
+                          type="radio"
+                          />
+    </div>
+    
+</aura:component>

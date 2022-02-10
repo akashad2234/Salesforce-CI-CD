@@ -1,0 +1,21 @@
+<apex:page controller="Apex_Message_Example">
+    <apex:form id="fm"> 
+        <apex:pageMessages />
+        <apex:pageBlock title="Message">
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton value="Submit" action="{!submit}" reRender="fm" />
+                
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection columns="1">
+                <apex:pageBlockSectionItem >
+                     <apex:outputLabel value="Name" /> 
+                    <apex:inputText value="{!name}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Age" />
+                    <apex:inputText value="{!age}"/>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

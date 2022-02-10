@@ -1,0 +1,7 @@
+<aura:component >
+	Institute:CapitalInfo<br/>
+    MainBranch:ParkStreet<br/>
+    City:Kolkata<br/><br/>
+    <c:Child_Component_1/><br/>
+    <c:Child_Component_2/>
+</aura:component>

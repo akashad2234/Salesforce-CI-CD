@@ -1,0 +1,66 @@
+<aura:component  controller="pageWOWrapp" implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:attribute name="View" type="String"/>
+    <aura:attribute name="Count" type="Integer[]" default ="[1]"/>
+    <aura:attribute name="page" type="Integer"/>
+    <aura:attribute name="offset" type="Integer" default ="0"/>
+    <aura:attribute name="Acclist" type="Account[]"/>
+    <aura:attribute name="lastPage" type="Integer"/>    
+    <aura:handler name="init" value="{!this}" action="{!c.loadData}"/>
+    <div class="slds-page-header">
+        <div class="slds-page-header__row">
+            <div class="slds-page-header__col-title lgc-bg">
+                <div class="slds-media">
+                    <div class="slds-media__figure "> 
+                        <span class="slds-icon_container slds-icon-standard-opportunity" title="opportunity">
+                            <!--   <lightning:icon iconName="action:approval" alternativeText="Success" variant="error" /> -->
+                            <span class="slds-assistive-text">opportunity</span> 
+                        </span>
+                    </div>
+                    <div class="slds-media__body">
+                        <div class="slds-page-header__name">
+                            <div class="slds-page-header__name-title">
+                                <h1>
+                                    <span class="slds-page-header__title slds-truncate" title="Inquiries"><b>Inquiries</b></span>
+                                </h1> </div>
+                        </div>
+                        <p class="slds-page-header__name-meta">Home</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slds-p-around_medium container ">
+        <b>View: {!v.View}</b> 
+        <lightning:buttonMenu alternativeText="Show menu">
+            <lightning:menuItem value="All" label="All" />
+        </lightning:buttonMenu><br/> <br/>
+        <div  class="slds-float_right">
+            <lightning:button disabled ="{!v.offset==0}" label="Previous Page"  onclick="{!c.doPrevious}" iconPosition="right"/>
+            |<lightning:button disabled ="{!v.offset==v.lastPage}" label="Next Page"  onclick="{!c.doNext}" iconPosition="right"/><br/>
+            <aura:iteration items="{!v.Count}" var="d">
+                <lightning:button name="{!d}" label="{!d}" onclick="{!c.doNavigate}"/>
+            </aura:iteration>
+        </div>
+    </div>
+    <br/> <br/>
+    <div class="slds-float_right lgc-bg">
+        <lightning:button  label="New Enquiry"  onclick="{!c.newEnquiry}" iconPosition="right"/>
+    </div>
+    <table>
+        <div  class="slds-p-around_small"  style="font-size:180%">
+            <tr> 
+                <th>Account Name</th>    
+            </tr>
+        </div>
+        <aura:iteration items="{!v.Acclist}" var="d">
+            <div  class="slds-p-around_small"  style="font-size:180%">
+                <tr>
+                    <td>{!d.Name}  </td>
+                </tr>
+            </div>
+        </aura:iteration>
+    </table>
+    
+    
+    
+</aura:component>

@@ -1,0 +1,10 @@
+<apex:page >
+     <apex:sectionHeader title="Student" subtitle="New Student" help="/apex/Page2"  />
+    <apex:pageBlock >
+        <apex:facet name="header">Header Info</apex:facet>
+        <apex:facet name="footer">Footer Info</apex:facet>
+        Name:Satish Myla <br/><br/>
+        Age:33<br/><br/>
+        City:Hyderabad
+    </apex:pageBlock>
+</apex:page>

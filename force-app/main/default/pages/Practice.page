@@ -1,0 +1,30 @@
+<apex:page standardController="Opportunity" recordSetVar="opportunities"  tabStyle="Opportunity" sidebar="false">
+    <apex:outputPanel id="thePanel" layout="block" dir="LTR">My div</apex:outputPanel>
+    <apex:outputLink value="https://www.salesforce.com" id="theLink">www.salesforce.com</apex:outputLink>
+    <apex:panelGrid columns="3" id="theGrid">
+        <apex:outputText value="First" id="theFirst"/>
+        <apex:outputText value="Second" id="theSecond"/>
+        <apex:outputText value="Third" id="theThird"/>
+        <apex:outputText value="Fourth" id="theFourth"/> 
+    </apex:panelGrid> 
+    
+  <!--  <apex:includeScript value="{!$Resource.example_js}"/> -->
+    
+    <p>Enter an alphabetic character for the "Close Date," 
+        then click Save to see what happens.</p>
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageMessages escape="true" />
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Save" action="{!save}"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockTable value="{!opportunities}" var="opp">
+                <apex:column value="{!opp.name}"/>
+                <apex:column headerValue="Close Date">
+                    <apex:inputField value="{!opp.closeDate}"/>
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+        
+    </apex:form>  
+</apex:page>

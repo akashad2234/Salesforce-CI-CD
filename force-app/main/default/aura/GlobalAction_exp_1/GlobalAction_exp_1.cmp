@@ -1,0 +1,9 @@
+<aura:component implements="force:lightningQuickActionWithoutheader" >
+    <lightning:card title="Example">
+        <lightning:input label="First Name" aura:id="first" />
+        <lightning:input label="Last Name" aura:id="last" />
+        <lightning:input label="Name" aura:id="name" />
+        
+    </lightning:card>
+	
+</aura:component>

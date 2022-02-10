@@ -1,0 +1,5 @@
+<apex:page controller="controllerClass">
+    Age: {!age} <br/>
+    Name: {!name} <br/>
+    Branch: {!branch}
+</apex:page>

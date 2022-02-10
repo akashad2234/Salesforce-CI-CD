@@ -1,0 +1,89 @@
+<aura:component implements ="force:hasRecordId,lightning:isUrlAddressable">
+    <!--  <aura:attribute name = "showformPage" type = "Boolean" default = "false" /> -->
+    <aura:attribute name="sObjectName" type="String" default="Account" /> 
+    <aura:attribute name="iconName" type="String" default="account" /> 
+    <aura:attribute name="recordId" type="String" /> 
+    <aura:attribute name="pageReference" type="Object"/>
+    <lightning:navigation aura:id="navService"/>
+    <aura:attribute name="showSpinner" type="Boolean" default="true" />
+    <aura:if isTrue="{!v.showSpinner}">
+        <lightning:spinner />
+    </aura:if>
+    <!-- <aura:if isTrue="{!v.showformPage}"> -->
+    
+    <lightning:card iconName="{!'standard:'+v.iconName}" title="{! 'New '+v.sObjectName}"> 
+        <div class="slds-p-left_large slds-p-right_medium" > 
+            
+            <lightning:recordEditForm aura:id="recordEditForm" 
+                                      
+                                      objectApiName="{!v.sObjectName}"
+                                      onload="{!c.handleLoad}"
+                                      onsuccess="{!c.handleSuccess}"
+                                      onsubmit="{!c.handleSubmit}">
+                
+                <lightning:messages />
+                
+                <!-- <div class="c-container">
+                    <lightning:layout >
+                        <lightning:layoutItem padding="around-small">
+                            <div class="header-column">
+                            <lightning:inputField fieldName="Name" />
+                            </div>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem padding="around-small">
+                            <div class="header-column">
+                            <lightning:inputField fieldName="Phone" />
+                            </div>
+                        </lightning:layoutItem>
+                    </lightning:layout>
+                    </div>
+                    <lightning:inputField fieldName="Rating" />  -->
+                <div class="c-container">
+                    
+                    <lightning:layout pullToBoundary="medium">
+                        <lightning:layoutItem flexibility="auto" padding="horizontal-medium">
+                            <div class="header-column">
+                                <lightning:inputField fieldName="Name" aura:id="name" />
+                            </div>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem flexibility="auto" padding="horizontal-medium">
+                            <div class="header-column">
+                                <lightning:inputField fieldName="Phone" aura:id="phone" />
+                            </div>
+                        </lightning:layoutItem>
+                    </lightning:layout>
+                    <lightning:layout pullToBoundary="medium">
+                        <lightning:layoutItem flexibility="auto" padding="horizontal-medium">
+                            <div class="header-column">
+                                <lightning:inputField fieldName="Industry" aura:id="industry" />
+                            </div>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem flexibility="auto" padding="horizontal-medium">
+                            <div class="header-column">
+                                <lightning:inputField fieldName="Rating" aura:id="rating" />
+                            </div>
+                        </lightning:layoutItem>
+                    </lightning:layout>
+                    <lightning:layout pullToBoundary="medium">
+                        <lightning:layoutItem flexibility="auto" padding="horizontal-medium">
+                            <div class="header-column">
+                                <lightning:inputField fieldName="Fax" aura:id="fax" />
+                            </div>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem flexibility="auto" padding="horizontal-medium">
+                            <div class="header-column">
+                                <lightning:inputField fieldName="Ownership" aura:id="ownership"/>
+                            </div>
+                        </lightning:layoutItem>
+                    </lightning:layout>
+              
+                </div>
+                <center> <lightning:button class="slds-m-top_small" type="submit" label="Submit" variant="brand"  /> </center><br/><br/>
+                
+            </lightning:recordEditForm>
+        </div>
+        
+    </lightning:card> 
+    
+    <!-- </aura:if> -->
+</aura:component>

@@ -1,0 +1,17 @@
+<apex:page >
+    
+    <apex:includeLightning />
+    <div id="one" >
+        
+    </div>
+    <script>
+     $Lightning.use("c:Out_comp_App_2",function(){
+         $Lightning.createComponent("c:Out_comp_2",
+                                    {},
+                                    "one",
+                                    function(component){
+                                        component.set("v.myVal","Energy");
+                                    });
+          });                              
+    </script>
+</apex:page>

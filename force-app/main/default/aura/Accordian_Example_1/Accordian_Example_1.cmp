@@ -1,0 +1,21 @@
+<aura:component >
+	<lightning:accordion activeSectionName="basicinfo" allowMultipleSectionsOpen="true">
+       <lightning:accordionSection name="basicinfo" label="Customer Basic Info">
+           <lightning:input label="FirstName" aura:id="fname" />
+           <lightning:input label="LastName" aura:id="lname" />
+           <lightning:input label="Company" aura:id="company" />   
+        </lightning:accordionSection>
+   
+       <lightning:accordionSection name="education" label="Education Info">
+           <lightning:input label="College" aura:id="cname" />
+           <lightning:input label="Year" aura:id="year" />
+           <lightning:input label="Branch" aura:id="branch" />   
+        </lightning:accordionSection>
+    
+       <lightning:accordionSection name="com" label="communication Info">
+           <lightning:input label="Phone" aura:id="phone" />
+           <lightning:input label="Email" aura:id="email" />
+           <lightning:input label="Mobile" aura:id="mobile" />   
+        </lightning:accordionSection>
+    </lightning:accordion>
+</aura:component>

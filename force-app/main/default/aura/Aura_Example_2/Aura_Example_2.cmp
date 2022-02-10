@@ -1,0 +1,10 @@
+<aura:component controller="Aura_Example_2">
+    <div class="block">
+        <lightning:input  label="Enter Amount" aura:id="amount" />
+        <lightning:input  label="Enter Years" aura:id="years" />
+        <lightning:input  label="Enter Rate" aura:id="rate" />
+        <lightning:input  label="Intrest" aura:id="intrest" />
+        <lightning:buttonIcon iconName="utility:call" alternativeText="Icon Loaded"  onclick="{!c.invoke}" />
+        
+    </div>
+</aura:component>

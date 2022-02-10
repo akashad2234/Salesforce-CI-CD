@@ -1,0 +1,15 @@
+<aura:component controller="BookSearch" implements="force:appHostable,flexipage:availableForAllPageTypes" >
+    <aura:handler name="BookEvent" event="c:SearchEvent" action="{!c.handleCompEvent}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.handleCompEvent}"/>
+    <aura:attribute name="bookList" type="Object" />
+	<div>
+        <c:HeaderComponent TagLine="Audit History Report" />
+    </div>
+    <div>
+        <c:BookSearch />
+    </div>
+     <div>
+      
+         <c:BookList recordList="{!v.bookList}" />
+    </div>
+</aura:component>

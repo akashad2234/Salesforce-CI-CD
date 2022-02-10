@@ -1,0 +1,25 @@
+<apex:page standardController="Lead" recordSetVar="items">
+    <apex:form >
+        <apex:pageBlock title="Lead Records">
+            <apex:pageBlockTable value="{!items}" var="a">
+                <apex:column >
+                    <apex:facet name="header"><apex:inputCheckbox /></apex:facet>
+                    <apex:inputCheckbox />
+                </apex:column>
+                <apex:column value="{!a.lastName}"/>
+                <apex:column value="{!a.firstName}"/>
+                <apex:column value="{!a.Phone}"/>
+                <apex:column headerValue="Company">{!a.company}</apex:column>
+                <apex:column headerValue="Action">
+                    <apex:commandButton value="add" />
+                    <apex:commandButton value="del" />
+                </apex:column>
+                <apex:column >
+                    <apex:commandLink value="Edit" />&nbsp;|&nbsp;
+                    <apex:commandLink value="New" />
+                </apex:column>
+            </apex:pageBlockTable>
+            
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,42 @@
+<aura:component  implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global">
+    
+    <aura:attribute name = "showform" type = "Boolean" default = "true" />
+    <aura:attribute name = "steps" type = "Boolean" default = "true" />
+    
+    <!--  <aura:attribute name = "enableform" type = "Boolean" default = "true" />
+    <aura:attribute name = "disableform" type = "Boolean" default = "true" /> -->
+    <aura:attribute name = "disableShowAccountButton" type = "Boolean" default = "true" />
+    
+    <aura:handler name="editFormPage" event="c:RecordEditEvent" action="{!c.handleComponentEvent}"/>
+    
+   
+    
+   
+    <aura:if isTrue = "{!v.steps}">
+        <c:RecordEditFormChild2 aura:id="child2" />
+    </aura:if>
+   
+    
+     
+    
+     <aura:if isTrue = "{!v.showform}">
+        <c:RecordEditFormChild aura:id="child1" />
+    </aura:if>
+      <div class="box"> 
+    <center>
+        <lightning:button class="deselectAllitem" onclick="{! c.docheckClick }" name="hideform" variant="brand" label="Hide form" title="Test" />
+        
+        
+        <lightning:button aura:id = "next" name="next" label = "Next" disabled = "{!!v.disableShowAccountButton}" onclick = "{!c.nextButton}" variant = "brand"/>
+        
+        
+        
+        
+        <lightning:button aura:id = "previous" name="previous" label = "Previous" disabled = "{!v.disableShowAccountButton}" onclick = "{!c.previousButton}" variant = "brand"/>
+    </center>
+    
+    
+    
+     </div>   
+    
+</aura:component>

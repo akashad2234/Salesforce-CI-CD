@@ -1,0 +1,13 @@
+<aura:component >
+    <aura:attribute name="empName" type="String" />
+    <aura:attribute name="age" type="Integer" required="true" />
+    <aura:attribute name="salary" type="Decimal" default="1000" />
+    <aura:attribute name="city" type="String" description="HomeTown" />
+    <div>
+        Name:{!v.empName}<br/>
+        age:{!v.age}<br/>
+        Salary:{!v.salary}<br/>
+        City:{!v.city}<br/>
+    </div>
+    
+</aura:component>

@@ -1,0 +1,7 @@
+<apex:page >
+    <apex:sectionHeader title="Student" subtitle="New Student" help="/apex/Page2" description="Student info" rendered="true" />
+    <br/>
+     Name:Akash <br/><br/>
+     College:CBIT <br/><br/>
+     City: Kolkata <br/><br/>
+</apex:page>

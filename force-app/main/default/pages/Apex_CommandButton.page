@@ -1,0 +1,9 @@
+<apex:page >
+    <apex:form >
+        <apex:commandButton value="MyButton"/>
+        <apex:commandButton value="Cancel" disabled="true" />
+        <apex:commandButton value="Display" rendered="false" />
+        <apex:commandButton value="Submit" action="/apex/page" />
+        <apex:commandButton value="Reload" reRender="one" />
+    </apex:form>
+</apex:page>

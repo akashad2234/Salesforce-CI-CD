@@ -1,0 +1,13 @@
+<aura:component >
+    <lightning:button label="Button1" />
+    <lightning:button label="Button2" title="MyButton" />
+    <lightning:button label="Base" variant="base" />
+    <lightning:button label="neutral" variant="neutral" />
+    <lightning:button label="inverse" variant="inverse" />
+    <lightning:button label="destructive" variant="destructive" />
+    <lightning:button label="Success" variant="Success" />
+    <lightning:button label="Cancel" iconName="standard:account" />
+    <lightning:button label="SetData" iconName="Utility:down" iconPosition="Right" />
+   
+    
+</aura:component>

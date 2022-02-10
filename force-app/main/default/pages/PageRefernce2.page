@@ -1,0 +1,7 @@
+<apex:page controller="PageReference_Example">
+    <apex:form >
+         <apex:commandButton value="Page1" action="{!call}" />
+        <apex:commandButton value="Page2" action="{!show}" />
+        <apex:commandButton value="Page3" action="{!call}" />
+    </apex:form>
+</apex:page>

@@ -1,0 +1,13 @@
+public class pageWOWrapp {
+   @AuraEnabled
+     public static WraperClass getConList(Integer offset) 
+    {
+        WraperClass result = new WraperClass();
+        
+       result.acc = [Select id, Name From Account order by Name limit 10  OFFSET :offset];
+        Decimal sh = [Select Count() from Account];
+        result.total = math.ceil(sh/10);
+         return result;   
+        
+    }
+}
